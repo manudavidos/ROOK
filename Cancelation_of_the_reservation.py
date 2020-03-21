@@ -1,39 +1,35 @@
 room_data = {
-  "room_code" : "003M",
-  "room_status" : "Booked",
-  "room_location" : "Main Building",
-  "room_capacity" : 10,
-  "room_occupied_seats" : 7
+  "Room Code: " : "003M",
+  "Room Status: " : "Booked",
+  "Room Location: " : "Main Building",
+  "Room Capacity: " : 10,
+  "Room Occupied Seats: " : 7
 }
 
-
-print("Room Code:",room_data["room_code"])
-print("Room Status:",room_data["room_status"])
-print("Room Location:",room_data["room_location"])
-print("Room Capacity:",room_data["room_capacity"])
-print("Room Occupied Seats:",room_data["room_occupied_seats"])
+for key in room_data.keys():
+  print(key,room_data[key])
 
 cancelation = str(input("Do you want to cancel your reservation? (yes/no): "))
 
 if (cancelation == "yes"):
     print("==========")
     print("You have cencelled the reservation.")
-    print("Room Code:",room_data["room_code"])
-    print("Room Status:",room_data["room_status"])
-    print("Room Location:",room_data["room_location"])
-    print("Room Capacity:",room_data["room_capacity"])
-    room_data ["room_occupied_seats"] = int(room_data["room_occupied_seats"] -1)
-    print(("Room Occupied Seats:"), room_data["room_occupied_seats"], "/", room_data["room_capacity"])
+    print("Room Code:",room_data["Room Code: "])
+    print("Room Status:",room_data["Room Status: "])
+    print("Room Location:",room_data["Room Location: "])
+    print("Room Capacity:",room_data["Room Capacity: "])
+    room_data ["Room Occupied Seats: "] = int(room_data["Room Occupied Seats: "] -1)
+    print(("Room Occupied Seats:"), room_data["Room Occupied Seats: "], "/", room_data["Room Capacity: "])
 
 else:
     if (cancelation == "no"):
         print("==========")
         print("The reservation is kept")
-        print("Room Code:",room_data["room_code"])
-        print("Room Status:",room_data["room_status"])
-        print("Room Location:",room_data["room_location"])
-        print("Room Capacity:",room_data["room_capacity"])
-        print("Room Occupied Seats:",room_data["room_occupied_seats"])
+        print("Room Code:",room_data["Room Code: "])
+        print("Room Status:",room_data["Room Status: "])
+        print("Room Location:",room_data["Room Location: "])
+        print("Room Capacity:",room_data["Room Capacity: "])
+        print("Room Occupied Seats:",room_data["Room Occupied Seats: "])
 if (cancelation != "yes" and cancelation != "no"):
     print(" ")
     print("Error: Only lowercase yes or no are accepted.")
