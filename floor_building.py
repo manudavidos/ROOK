@@ -1,17 +1,22 @@
-Main_Building = 10
-Paramaz_Avedissian_Building = 20
-Main_Building_Floor = 6
-Paramaz_Avedissian_Building_Floor = 4
-Floor = 0
+buildings = {
+  "Main Building" : 10,
+  "Paramaz Avedissian Building" : 20
+}
+
+floors = {
+  "Main Building Floors:" : 6,
+  "Paramaz Avedissian Building Floors:" : 4
+}
+Floor = 0 #Ask the instructor if it is correct to write like this.
 
 print("Please select the building: ")
-print(Main_Building, "Main Building")
-print(Paramaz_Avedissian_Building, "Paramaz Avedissian Building")
+for key in buildings.keys():
+  print(buildings[key],key)
 print("==========")
 input_building = int(input())
-if(input_building == Main_Building):
-  print("You have chosen the Main Building. Please select the floor: ")
-  while(Floor<=Main_Building_Floor):
+if(input_building == buildings["Main Building"]):
+  print("You have chosen the Main Building. Please select the floor:")
+  while(Floor<= floors["Main Building Floors:"]):
     print(Floor)
     Floor = Floor+1
   print("==========")
@@ -19,7 +24,6 @@ if(input_building == Main_Building):
   if(input_floor == 0):
     print(" ")
     print("You have selected the ground floor of the  Main Building!")
-
   if(input_floor == 1):
     print(" ")
     print("You have selected the first floor of the  Main Building!")
@@ -45,10 +49,14 @@ if(input_building == Main_Building):
               print("You have selected the sixth floor of the  Main Building!")
             else:
               print("ERR001: Input error")
+
+
+
 else:
-  if(input_building==Paramaz_Avedissian_Building):
-   print("You have chosen the Paramaz Avedissian Building. Please select the floor")
-   while(Floor<=Paramaz_Avedissian_Building_Floor):
+  Floor=1
+  if(input_building == buildings["Paramaz Avedissian Building"]):
+   print("You have chosen the Paramaz Avedissian Building. Please select the floor.")
+   while(Floor<=floors["Paramaz Avedissian Building Floors:"]):
     print(Floor)
     Floor = Floor+1
   print("==========")
