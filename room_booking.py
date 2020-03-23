@@ -10,6 +10,8 @@ room_booked_by = []
 
 booking_by = "NOTANAUAEMAIL"
 email_input_trial = 0
+answer_trial = 0
+answer="NOANSWER"
 
 #Show basic room information without status
 print("Room Code:", room_code)
@@ -20,10 +22,13 @@ print("Room is booked by:", room_booked_by)
 if(room_status==available or room_status==booked and room_occupied_seats < room_capacity): #Check if the room is available for booking
     if (room_status==available):
         print("Room Status: Available")
-    else:
-        if (room_status==booked):
-            print("Room Status: Booked (has additional seats)")
-    answer = str(input("The room is available for booking, do you want to book it? (yes/no): ")) #Ask user if they want to book the room
+    elif(room_status==booked):
+        print("Room Status: Booked (has additional seats)")
+    while(answer!="yes" and answer!="no"):
+        if(answer_trial!=0):
+            print("Error 003: Only lowercase yes or no are accepted.")
+        answer = str(input("The room is available for booking, do you want to book it? (yes/no): ")) #Ask user if they want to book the room
+        answer_trial += 1
     if(answer=="yes"): #Check if the answer is yes
         while (booking_by.find("@edu.aua.am") == -1 and booking_by.find("@aua.am") == -1):
             if (email_input_trial == 0):
@@ -44,28 +49,25 @@ if(room_status==available or room_status==booked and room_occupied_seats < room_
         print("Room is booked by:", room_booked_by)
         if(room_status==booked):
             print("Room Status: Booked") #Output the final room status
-    else:
-        if(answer=="no"): #Check if the answer is no
+    elif(answer=="no"): #Check if the answer is no
+        print("==========")
+        print("You have canceled the question, the room will stay unbooked") #Inform about the cancelation of the request
+        print("Room Code:", room_code)
+        print("Room Location:", room_location)
+        print("Number of Occupied Seats:", room_occupied_seats, "/", room_capacity)
+        print("Room is booked by:", room_booked_by)
+        if(room_status==available):
+            print("Room Status: Available") #Output the final room status
             print("==========")
-            print("You have canceled the question, the room will stay unbooked") #Inform about the cancelation of the request
-            print("Room Code:", room_code)
-            print("Room Location:", room_location)
-            print("Number of Occupied Seats:", room_occupied_seats, "/", room_capacity)
-            print("Room is booked by:", room_booked_by)
-            if(room_status==available):
-                print("Room Status: Available") #Output the final room status
-                print("==========")
-                print("THE PROGRAM WILL EXIT NOW") #Inform about the termination of the program
-            else:
-                 if(room_status==booked):
-                    print("Room Status: Booked") #Output the final room status
-                    print("==========")
-                    print("THE PROGRAM WILL EXIT NOW") #Inform about the termination of the program
-        else:
-            print("Error 001: Only lowercase yes or no are accepted.") #Output error if any answer is other than yes/no
+            print("THE PROGRAM WILL EXIT NOW") #Inform about the termination of the program
+        elif(room_status==booked):
+            print("Room Status: Booked") #Output the final room status
+            print("==========")
+            print("THE PROGRAM WILL EXIT NOW") #Inform about the termination of the program
+    else:
+        print("Error 001: Unknown Error has occured, please contact your administrator and tell them the error number") #Output error...
 
 
-else:
-  if(room_status==booked and room_occupied_seats == room_capacity): #Check if the room is booked
+elif(room_status==booked and room_occupied_seats == room_capacity): #Check if the room is booked
     print("Room Status: Booked") #Output the final room status
     print("Sorry, this room is fully booked. Try later...") #Tell user to try again later
