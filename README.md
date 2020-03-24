@@ -2,4 +2,4 @@
 
 Please use the rook_dev branch to make edits
 
-Install opencv-python qrcode packages to use qr code functionality
+Install qrcode packages to use qr code functionality
