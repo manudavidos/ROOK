@@ -64,7 +64,8 @@ if(room_details["room_status"]==status["available"]):
     print("You have successfully booked the room.")
     print("Room Code:", room_details["room_code"])
     print("Room Location:", room_details["room_location"]["name"])
-    print("Room Status:", status["booked"]["name"])
+    room_details["room_status"]=status["booked"]
+    print("Room Status:", room_details["room_status"]["name"])
   elif(answer=="no"):
     print("")
     print("You have canceled the question, the room will stay available")
@@ -74,6 +75,6 @@ if(room_details["room_status"]==status["available"]):
   else:
     print("Error. Only lowercase yes or no answers are accepted.") 
 
-if(room_details["room_status"]==status["booked"]):
+elif(room_details["room_status"]==status["booked"]):
   print("Room Status:", room_details["room_status"]["name"])
   print("Sorry, this room is unavailable. Try later...")
