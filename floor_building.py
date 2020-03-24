@@ -7,6 +7,11 @@ floors = {
   "Main Building Floors:" : 6,
   "Paramaz Avedissian Building Floors:" : 4
 }
+Wings = {
+  "E" : "East",
+  "W" : "West"
+
+}
 Floor = 0 #Ask the instructor if it is correct to write like this.
 
 print("Please select the building: ")
@@ -61,9 +66,9 @@ else:
     Floor = Floor+1
   print("==========")
   input_floor = int(input())
-
+  
   if(input_floor == 1):
-    print(" ")
+
     print("You have selected the first floor of the Paramaz Avedissian Building!")
   else:
     if(input_floor == 2):
@@ -79,4 +84,12 @@ else:
           print("You have selected the fourth floor of the Paramaz Avedissian Building!")
         else:
             print("ERR001: Input error")
-              
+  print("==========")
+  while(input_floor<=4):
+    print("Choose one of the wings: East/West")
+    input_wing= str(input())
+    if(input_wing==Wings["E"] or input_wing==Wings["W"]):
+      print("You have chosen the",input_wing,"wing!")
+      break
+     
+  
