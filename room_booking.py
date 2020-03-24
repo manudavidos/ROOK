@@ -36,7 +36,7 @@ user_details = {
     "id":0,
     "first_name":"",
     "last_name":"",
-    "email":""
+    "email":"aua@aua.am"
 }
 
 email_input_trial = 0
@@ -50,7 +50,7 @@ print("Number of Occupied Seats:", room_details["room_occupied_seats"], "/", roo
 print("Room is booked by:", room_details["room_booked_by"])
 print("Room Status:", room_details["room_status"]["name"])
 
-if(room_details["room_status"]==status["available"] or room_details["room_status"]==status["booked"] and room_details["room_occupied_seats"] < room_details["room_capacity"]): #Check if the room is available for booking
+if(room_details["room_status"]!=status["other"] and room_details["room_occupied_seats"] < room_details["room_capacity"]): #Check if the room is available for booking
     while(answer!="yes" and answer!="no"):
         if(answer_trial!=0):
             print("Error 003: Only lowercase yes or no are accepted.")
@@ -89,6 +89,5 @@ if(room_details["room_status"]==status["available"] or room_details["room_status
         print("Error 001: Unknown Error has occured, please contact your administrator and tell them the error number") #Output error...
 
 
-elif(room_details["room_status"]==status["booked"] and room_occupied_seats == room_capacity): #Check if the room is booked
-    print("Room Status: Booked") #Output the final room status
+elif(room_details["room_status"]==status["booked"] and room_details["room_occupied_seats"] == room_details["room_capacity"]): #Check if the room is booked
     print("Sorry, this room is fully booked. Try later...") #Tell user to try again later
