@@ -1,67 +1,87 @@
-{"status": {
-    "available":{
-    "name":"Available",
-    "code":0
-                },
-    "booked":{
-    "name":"Booked",
-    "code":1
-            },
-    "other":{
-    "name":"Other",
-    "code":2
-            }
-        },
-"location":{
-    "main_building":{
-    "name":"Main Building",
-    "code":["M"],
-    "number_of_floors":7
-                },
-    "pab":{
-    "name":"Parmaz Avetisian Building",
-    "code":["E","W"],
-    "number_of_floors":4
-            }
-        },
-"room_details":[{
-    "room_code":"003M",
-    "room_status":{
-        "name":"Available",
-        "code":0},
-    "room_location":{
-        "name":"Main Building",
-        "code":["M"],
-        "number_of_floors":7
-                    },
-    "room_capacity":10,
-    "room_occupied_seats":0,
-    "room_booked_by":[]
-},
+{
+	"status":{
+		"available":{
+			"name":"Available",
+			"code":0
+		},
+		"booked":{
+			"name":"Booked",
+			"code":1
+		},
+		"other":{
+			"name":"Other",
+			"code":2
+		}
+	},
+	"location":{
+		"main_building":{
+			"name":"Main Building",
+			"code":[
+				"M"
+			],
+			"number_of_floors":7
+		},
+		"pab":{
+			"name":"Parmaz Avetisian Building",
+			"code":[
+				"E",
+				"W"
+			],
+			"number_of_floors":4
+		}
+	},
+	"room_details":[
+		{
+			"room_code":"003M",
+			"room_status":{
+				"name":"Available",
+				"code":0
+			},
+			"room_location":{
+				"name":"Main Building",
+				"code":[
+					"M"
+				],
+				"number_of_floors":7
+			},
+			"room_capacity":10,
+			"room_occupied_seats":0,
+			"room_booked_by":[
 
-[{
-    "room_code":"003M",
-    "room_status":{
-        "name":"Available",
-        "code":0},
-    "room_location":{
-        "name":"Main Building",
-        "code":["M"],
-        "number_of_floors":7
-                    },
-    "room_capacity":10,
-    "room_occupied_seats":0,
-    "room_booked_by":[]
-},],
-"user_details" : [{
-    "id":0,
-    "first_name":"",
-    "last_name":"",
-    "email":"aua@aua.am"
-},{
-    "id":1,
-    "first_name":"",
-    "last_name":"",
-    "email":"aua1@aua.am"
-}]
+			]
+		},
+		{
+			"room_code":"003M",
+			"room_status":{
+				"name":"Available",
+				"code":0
+			},
+			"room_location":{
+				"name":"Main Building",
+				"code":[
+					"M"
+				],
+				"number_of_floors":7
+			},
+			"room_capacity":10,
+			"room_occupied_seats":0,
+			"room_booked_by":[
+
+			]
+		}
+	],
+	"user_details":[
+		{
+			"id":0,
+			"first_name":"",
+			"last_name":"",
+			"email":"aua@aua.am"
+		},
+		{
+			"id":1,
+			"first_name":"",
+			"last_name":"",
+			"email":"aua1@aua.am"
+		}
+	]
 }
