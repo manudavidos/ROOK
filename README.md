@@ -2,7 +2,7 @@
 
 **Version 1.0.2**
 
-This project was created by AUA students aiming to help the AUA community to use the AUA rooms more efficiently during the busy year times.
+This project was created by AUA students aiming to help the AUA community to use the AUA rooms more efficiently during the busy times of the year.
 
 ## Data Structure
 Currently, the data of the project is held in a JSON structure; in the future, we aim to move the data to the NoSQL database. 
