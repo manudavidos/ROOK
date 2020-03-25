@@ -165,16 +165,97 @@
 			]
 		}
 	},
-	"users":{
-		"aua@aua.am":{
-			"first_name":"",
-			"last_name":"",
-			"email":"aua@aua.am"
+	"113W":{
+			"room_code":"113W",
+			"room_status":{
+				"name":"Available",
+				"code":0
+			},
+			"room_location":{
+				"name":"Paramaz Avedissian Building",
+				"code":[
+					"PAB"
+				],
+				"number_of_floors": 4
+			},
+			"room_capacity":10,
+			"room_occupied_seats":0,
+			"room_booked_by":[
+
+			]
 		},
-		"aua1@aua.am":{
-			"first_name":"",
-			"last_name":"",
-			"email":"aua1@aua.am"
-		}
-	}
-}
+		"213E":{
+			"room_code":"213E",
+			"room_status":{
+				"name":"Available",
+				"code":0
+			},
+			"room_location":{
+				"name":"Paramaz Avedissian Building",
+				"code":[
+					"PAB"
+				],
+				"number_of_floors": 4
+			},
+			"room_capacity":10,
+			"room_occupied_seats":0,
+			"room_booked_by":[
+
+			]
+		},
+		"313W":{
+			"room_code":"313W",
+			"room_status":{
+				"name":"Available",
+				"code":0
+			},
+			"room_location":{
+				"name":"Paramaz Avedissian Building",
+				"code":[
+					"PAB"
+				],
+				"number_of_floors": 4
+			},
+			"room_capacity":10,
+			"room_occupied_seats":0,
+			"room_booked_by":[
+
+			]
+		},
+		"413W":{
+			"room_code":"413W",
+			"room_status":{
+				"name":"Available",
+				"code":0
+			},
+			"room_location":{
+				"name":"Paramaz Avedissian Building",
+				"code":[
+					"PAB"
+				],
+				"number_of_floors": 4
+			},
+			"room_capacity":10,
+			"room_occupied_seats":0,
+			"room_booked_by":[
+
+			]
+		},
+	"users":{
+		"ani_babayan@aua.am":{
+			"first_name":"Ani",
+			"last_name":"Babayan",
+			"email":"ani_babayan@aua.am"
+		},
+		"manvel_manvelyan@aua.am":{
+			"first_name":"Manvel",
+			"last_name":"Manvelyan",
+			"email":"manvel_manvelyan@aua.am"
+		},
+    "gayane_amirjanyan@aua.am":{
+			"first_name":"Gayane",
+			"last_name":"Amirjanyan",
+			"email":"gayane_amirjanyan@aua.am"
+    }
+	  }
+  }
