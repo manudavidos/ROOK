@@ -46,8 +46,8 @@
             },
             "room_capacity": 10,
             "room_occupied_seats": 0,
-			"room_booked_by": [],
-			"room_password":"lol123"
+            "room_booked_by": [],
+            "room_password": "lol123"
         },
         "004M": {
             "room_code": "004M",
@@ -64,8 +64,8 @@
             },
             "room_capacity": 10,
             "room_occupied_seats": 0,
-			"room_booked_by": [],
-			"room_password": ""
+            "room_booked_by": [],
+            "room_password": ""
         }
     },
     "users": {
