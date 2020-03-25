@@ -1,93 +1,59 @@
-status = {
-    "available":{
-    "name":"Available",
-    "code":0
-                },
-    "booked":{
-    "name":"Booked",
-    "code":1
-            },
-    "other":{
-    "name":"Other",
-    "code":2
-            }
-        }
-location = {
-    "main_building":{
-    "name":"Main Building",
-    "code":["M"],
-    "number_of_floors":7
-                },
-    "pab":{
-    "name":"Parmaz Avetisian Building",
-    "code":["E","W"],
-    "number_of_floors":4
-            }
-        }
-room_details = {
-    "room_code":"003M",
-    "room_status":status["available"],
-    "room_location":location["main_building"],
-    "room_capacity":10,
-    "room_occupied_seats":0,
-    "room_booked_by":[]
-}
-user_details = {
-    "id":0,
-    "first_name":"",
-    "last_name":"",
-    "email":"aua@aua.am"
-}
+import json
 
-email_input_trial = 0
+with open('data.json') as data_file:
+    data = json.load(data_file)
+
 answer_trial = 0
 answer="NOANSWER"
 
-#Show basic room information without status
-print("Room Code:", room_details["room_code"])
-print("Room Location:", room_details["room_location"]["name"])
-print("Number of Occupied Seats:", room_details["room_occupied_seats"], "/", room_details["room_capacity"])
-print("Room is booked by:", room_details["room_booked_by"])
-print("Room Status:", room_details["room_status"]["name"])
+user_input_room_code = input("Please enter the room number you are trying to book: ")
+while (not(user_input_room_code in data["rooms"].keys())):
+    print ("Error 004: Room is not found, please try again!")
+    user_input_room_code = input("Please enter the room number you are trying to book: ")
 
-if(room_details["room_status"]!=status["other"] and room_details["room_occupied_seats"] < room_details["room_capacity"]): #Check if the room is available for booking
+#Show basic room information without status
+print("Room Code:", data["rooms"][user_input_room_code]["room_code"])
+print("Room Location:", data["rooms"][user_input_room_code]["room_location"]["name"])
+print("Number of Occupied Seats:", data["rooms"][user_input_room_code]["room_occupied_seats"], "/", data["rooms"][user_input_room_code]["room_capacity"])
+print("Room is booked by:", data["rooms"][user_input_room_code]["room_booked_by"])
+print("Room Status:", data["rooms"][user_input_room_code]["room_status"]["name"])
+
+if(data["rooms"][user_input_room_code]["room_status"]!=data["status"]["other"] and data["rooms"][user_input_room_code]["room_occupied_seats"] < data["rooms"][user_input_room_code]["room_capacity"]): #Check if the room is available for booking
     while(answer!="yes" and answer!="no"):
         if(answer_trial!=0):
             print("Error 003: Only lowercase yes or no are accepted.")
         answer = str(input("The room is available for booking, do you want to book it? (yes/no): ")) #Ask user if they want to book the room
         answer_trial += 1
     if(answer=="yes"): #Check if the answer is yes
-        while (user_details["email"].find("@edu.aua.am") == -1 and user_details["email"].find("@aua.am") == -1):
-            if (email_input_trial == 0):
-                user_details["email"] = str(input("Please enter your AUA email to continue booking: "))
-                email_input_trial += 1
-            else:
-                print ("Error 002: The email entered is not valid, please try again")
-                user_details["email"] = str(input("Please enter your AUA email to continue booking: "))
-                email_input_trial += 1
-        room_details["room_booked_by"].append(user_details["email"])
-        room_details["room_occupied_seats"] += 1
-        room_details["room_status"]=status["booked"] #Change the room status
+        user_input_email = input("Please enter your AUA email: ")
+        while (not(user_input_email in data["users"].keys()) or (user_input_email in data["rooms"][user_input_room_code]["room_booked_by"])):
+            print ("Error 003: Email is not valid or you have already booked this room, please try again!")
+            user_input_email = input("Please enter your AUA email: ")
+        data["rooms"][user_input_room_code]["room_booked_by"].append(data["users"][user_input_email]["email"])
+        data["rooms"][user_input_room_code]["room_occupied_seats"] += 1
+        data["rooms"][user_input_room_code]["room_status"]=data["status"]["booked"] #Change the room status
+        with open('data.json', 'w') as data_file:
+            json.dump(data, data_file, indent=4)
         print("==========")
         print("You have successfully booked the room") #Inform the user about the success
-        print("Room Code:", room_details["room_code"])
-        print("Room Location:", room_details["room_location"]["name"])
-        print("Number of Occupied Seats:", room_details["room_occupied_seats"], "/", room_details["room_capacity"])
-        print("Room is booked by:", room_details["room_booked_by"])
-        print("Room Status:", room_details["room_status"]["name"]) #Output the final room status
+        print("Room Code:", data["rooms"][user_input_room_code]["room_code"])
+        print("Room Location:", data["rooms"][user_input_room_code]["room_location"]["name"])
+        print("Number of Occupied Seats:", data["rooms"][user_input_room_code]["room_occupied_seats"], "/", data["rooms"][user_input_room_code]["room_capacity"])
+        print("Room is booked by:", data["rooms"][user_input_room_code]["room_booked_by"])
+        print("Room Status:", data["rooms"][user_input_room_code]["room_status"]["name"]) #Output the final room status
     elif(answer=="no"): #Check if the answer is no
         print("==========")
         print("You have canceled the question, the room will stay unbooked") #Inform about the cancelation of the request
-        print("Room Code:", room_details["room_code"])
-        print("Room Location:", room_details["room_location"]["name"])
-        print("Number of Occupied Seats:", room_details["room_occupied_seats"], "/", room_details["room_capacity"])
-        print("Room is booked by:", room_details["room_booked_by"])
-        print("Room Status:", room_details["room_status"]["name"]) #Output the final room status
+        print("Room Code:", data["rooms"][user_input_room_code]["room_code"])
+        print("Room Location:", data["rooms"][user_input_room_code]["room_location"]["name"])
+        print("Number of Occupied Seats:", data["rooms"][user_input_room_code]["room_occupied_seats"], "/", data["rooms"][user_input_room_code]["room_capacity"])
+        print("Room is booked by:", data["rooms"][user_input_room_code]["room_booked_by"])
+        print("Room Status:", data["rooms"][user_input_room_code]["room_status"]["name"]) #Output the final room status
         print("==========")
         print("THE PROGRAM WILL EXIT NOW") #Inform about the termination of the program
     else:
         print("Error 001: Unknown Error has occured, please contact your administrator and tell them the error number") #Output error...
 
 
-elif(room_details["room_status"]==status["booked"] and room_details["room_occupied_seats"] == room_details["room_capacity"]): #Check if the room is booked
+elif(data["rooms"][user_input_room_code]["room_status"]==data["status"]["booked"] and data["rooms"][user_input_room_code]["room_occupied_seats"] == data["rooms"][user_input_room_code]["room_capacity"]): #Check if the room is booked
     print("Sorry, this room is fully booked. Try later...") #Tell user to try again later
