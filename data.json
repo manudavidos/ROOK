@@ -50,8 +50,8 @@
 
 			]
 		},
-		"004M":{
-			"room_code":"004M",
+		"104M":{
+			"room_code":"104M",
 			"room_status":{
 				"name":"Available",
 				"code":0
@@ -63,7 +63,102 @@
 				],
 				"number_of_floors":7
 			},
-			"room_capacity":10,
+			"room_capacity":20,
+			"room_occupied_seats":0,
+			"room_booked_by":[
+
+			]
+		},
+		"208M":{
+			"room_code":"208M",
+			"room_status":{
+				"name":"Available",
+				"code":0
+			},
+			"room_location":{
+				"name":"Main Building",
+				"code":[
+					"M"
+				],
+				"number_of_floors":7
+			},
+			"room_capacity":20,
+			"room_occupied_seats":0,
+			"room_booked_by":[
+
+			]
+    },
+		"304M":{
+			"room_code":"304M",
+			"room_status":{
+				"name":"Other",
+				"code":2
+			},
+			"room_location":{
+				"name":"Main Building",
+				"code":[
+					"M"
+				],
+				"number_of_floors":7
+			},
+			"room_capacity":20,
+			"room_occupied_seats":0,
+			"room_booked_by":[
+
+			]
+		},
+		"414M":{
+			"room_code":"414M",
+			"room_status":{
+				"name":"Available",
+				"code":0
+			},
+			"room_location":{
+				"name":"Main Building",
+				"code":[
+					"M"
+				],
+				"number_of_floors":7
+			},
+			"room_capacity":20,
+			"room_occupied_seats":0,
+			"room_booked_by":[
+
+			]
+		},
+		"506M":{
+			"room_code":"506M",
+			"room_status":{
+				"name":"Available",
+				"code":0
+			},
+			"room_location":{
+				"name":"Main Building",
+				"code":[
+					"M"
+				],
+				"number_of_floors":7
+			},
+			"room_capacity":20,
+			"room_occupied_seats":0,
+			"room_booked_by":[
+
+			]
+		},
+		"604M":{
+			"room_code":"604M",
+			"room_status":{
+				"name":"Other",
+				"code":2
+			},
+			"room_location":{
+				"name":"Main Building",
+				"code":[
+					"M"
+				],
+				"number_of_floors":7
+			},
+			"room_capacity":20,
 			"room_occupied_seats":0,
 			"room_booked_by":[
 
