@@ -30,6 +30,7 @@ if(data["rooms"][user_input_room_code]["room_status"]!=data["status"]["other"] a
             print ("Error 003: Email is not valid or you have already booked this room, please try again!")
             user_input_email = input("Please enter your AUA email: ")
         data["rooms"][user_input_room_code]["room_booked_by"].append(data["users"][user_input_email]["email"])
+        data["users"][user_input_email]["booked_room"]=user_input_room_code
         data["rooms"][user_input_room_code]["room_occupied_seats"] += 1
         data["rooms"][user_input_room_code]["room_status"]=data["status"]["booked"] #Change the room status
         with open('data.json', 'w') as data_file:
