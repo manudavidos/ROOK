@@ -30,20 +30,6 @@ print("You have reserved the room for:", people_number["number_of_people"])
   
 print()
 
-allow_others_to_reserve = {
-    "allow_others" : "yes",
-    "do_not_allow_others" : "no"
-}
-allow_others_to_reserve["allow_others"] =str(input("Do you want others to reserve the room as well? Answer yes/no: "))
-if(allow_others_to_reserve["allow_others"] == "yes"):
-    print("The room will be used only by your group. Others cannot reserve it")
-if(allow_others_to_reserve["do_not_allow_others"] == "no"):
-    print("Others will be able to reserve your room")
-if(allow_others_to_reserve["allow_others"] != "yes"and allow_others_to_reserve["do_not_allow_others"] != "no"):
-    print("Error. Only yes/no answers are accepted")
-
-print()
-
 hours_of_reservation = [30, 60, 90, 120]
 for option in range(len(hours_of_reservation)):
     if(hours_of_reservation[option]<60):
@@ -51,14 +37,17 @@ for option in range(len(hours_of_reservation)):
     elif(hours_of_reservation[option]>=60):
         print (str(hours_of_reservation[option]/60)+" Hour(s)")
     
-hours_of_reservation= input(("How long do you want to reserve the room? We have " + str(len(hours_of_reservation)) + " options: "))
-if(hours_of_reservation=="30"):
+hours_of_reservation_answer= input(("How long do you want to reserve the room? We have " + str(len(hours_of_reservation)) + " options: "))
+while(hours_of_reservation_answer!="30" and hours_of_reservation_answer!="1.0" and hours_of_reservation_answer!="1.5" and hours_of_reservation_answer!="2.0"):
+  print("Error. Please choose one of the options:")
+  hours_of_reservation_answer= input(("How long do you want to reserve the room? We have " + str(len(hours_of_reservation)) + " options: "))
+
+if(hours_of_reservation_answer=="30"):
     print("You have reserved the room for: 30 Minutes")
-elif(hours_of_reservation=="1.0"):
+elif(hours_of_reservation_answer=="1.0"):
     print("You have reserved the room for: 1.0 Hour")
-elif(hours_of_reservation=="1.5"):
+elif(hours_of_reservation_answer=="1.5"):
     print("You have reserved the room for: 1.5 Hours")
-elif(hours_of_reservation=="2.0"):
+elif(hours_of_reservation_answer=="2.0"):
     print("You have reserved the room for: 2.0 Hours")
-else:
-    print("Error.")
+ 
