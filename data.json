@@ -30,7 +30,7 @@
 			"number_of_floors":4
 		}
 	},
-	"room_details":{
+	"rooms":{
 		"003M":{
 			"room_code":"003M",
 			"room_status":{
@@ -70,18 +70,16 @@
 			]
 		}
 	},
-	"user_details":[
-		{
-			"id":0,
+	"users":{
+		"aua@aua.am":{
 			"first_name":"",
 			"last_name":"",
 			"email":"aua@aua.am"
 		},
-		{
-			"id":1,
+		"aua1@aua.am":{
 			"first_name":"",
 			"last_name":"",
 			"email":"aua1@aua.am"
 		}
-	]
+	}
 }
