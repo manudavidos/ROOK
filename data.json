@@ -45,7 +45,7 @@
                 "number_of_floors": 7
             },
             "room_capacity": 10,
-            "room_occupied_seats": 0,
+            "room_occupied_seats": 4,
             "room_booked_by": [],
             "room_password": "lol123"
         },
@@ -63,7 +63,7 @@
                 "number_of_floors": 7
             },
             "room_capacity": 10,
-            "room_occupied_seats": 0,
+            "room_occupied_seats": 2,
             "room_booked_by": [],
             "room_password": ""
         }
