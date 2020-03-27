@@ -14,7 +14,7 @@ print("Room Location:",data["rooms"][user_input_room_code]["room_location"]["nam
 print("Room Capacity:",data["rooms"][user_input_room_code]["room_capacity"])
 print("Room Occupied Seats:",data["rooms"][user_input_room_code]["room_occupied_seats"])
 
-user_email = "aua@aua.am" #This is the user who is canceling the room reservation
+
 cancelation = str(input("Do you want to cancel your reservation? (yes/no): "))
 
 if (cancelation == "yes" and data["rooms"][user_input_room_code]["room_occupied_seats"]>=1):
@@ -25,7 +25,7 @@ if (cancelation == "yes" and data["rooms"][user_input_room_code]["room_occupied_
     print("Room Location:",data["rooms"][user_input_room_code]["room_location"]["name"])
     print("Room Capacity:",data["rooms"][user_input_room_code]["room_capacity"])
     data["rooms"][user_input_room_code]["room_occupied_seats"] = int(data["rooms"][user_input_room_code]["room_occupied_seats"] -1)
-    data["rooms"][user_input_room_code]["room_booked_by"].remove(user_email)
+   
     with open('data.json', 'w') as data_file:
         json.dump(data, data_file, indent=4)
     print(("Room Occupied Seats:"), data["rooms"][user_input_room_code]["room_occupied_seats"], "/", data["rooms"][user_input_room_code]["room_capacity"])
