@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ROOK / AUA</title>
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/script.js"></script>
+</head>
+<body>
+<div id="unavailable"></div>
+
+<div id="header">
+    <a class="right bigbtn toprightbtn" id="homeloginbutton" onclick="showloginbox()">Login With AUA Account</a>
+</div>
+<div id="loginbox">
+    <h1 id="loginboxtitle">Login</h1>
+    <input type="email" id="useremail" name="useremail" placeholder="AUA Email"><br>
+    <button type="button" id="loginbutton" class="bigbtn" onclick="login()">Login</button>
+</div>
+<div id="content">
+    <div id="homepagelogo" alt="ROOK Logo"></div>
+    <div class="left" id="homeroombar">
+            <input type="text" id="userroomnumber" name="userroomnumber" placeholder="Enter the room number e.g. 408E">
+            <button id="gototheroom" type="button"  onclick="gototheroom()">Go to the Room</button>
+    </div>
+    <div id="roominfo">
+        <h1>This feature is not ready yet!</h1>
+    </div>
+</div>
+<div id="footer"></div>
+
+</body>
+</html>
