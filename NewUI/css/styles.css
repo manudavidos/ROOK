@@ -1,0 +1,189 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #373F51;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width:  100vw;
+    position: fixed;
+    top:0;
+    background-color: #373F51;
+}
+
+#header-content{
+    width: 96vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+    min-height: 600px;
+    background-color: #373F51;
+}
+
+#main-content{
+    display: flex;
+    width: 96vw;
+    flex-direction: column;
+}
+
+#footer {
+    height: 80px;
+    width:  100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #373F51;
+}
+
+.center {
+    
+}
+
+  /* Button styles */
+
+.bigbtn {
+	background-color:#A9BCD0;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color: #1B1B1E;
+	font-size:19px;
+	padding:16px 28px;
+    text-decoration:none;
+    border: 0;
+    outline: 0;
+}
+
+.bigbtn:hover {
+    background-color:#D8DBE2;
+}
+.whitebtn:active {
+	position:relative;
+	top:1px;
+}
+
+#homeroombar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+}
+
+#homeroombar input[type=text], #useremail {
+    border: none;
+    border-radius: 28px;
+    font-size: 19px;
+    background-color: #FFFFFF;
+    padding: 12px 12px 12px 12px;
+    outline: 0;
+  }
+
+#homeroombar input[type=text]:focus, #useremail:focus {
+    border: none;
+  }
+
+  #userroomnumber {
+    width: 600px;
+    padding: 12px 120px 12px 12px !important;
+  }
+
+  #homeroombar button {
+	background-color:#A9BCD0;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color: #1B1B1E;
+	font-size:19px;
+	padding: 12px;
+    text-decoration:none;
+    border:0;
+    outline: 0;
+    margin-left: -156px;
+    min-width: 158px;
+}
+
+#homeroombar button:hover {
+	background-color:#D8DBE2;
+}
+
+
+#homepagelogo {
+    background: url("../img/logo.png");
+    background-size: 198px 241px;
+    height: 241px;
+    width: 198px;
+    display: inline-block;
+}
+
+#popups{
+    position: absolute;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginbox {
+    width: 500px;
+    height: 300px;
+    text-align: center;
+    display: none;
+    margin: auto;
+    z-index: 1000;
+    border-color: #A9BCD0;
+    background-color: #1B1B1E;
+    border-style: outset;
+    border-radius: 20px;
+    flex-flow: column;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    align-items:center;
+}
+
+#useremail {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width:270px;
+}
+
+#loginboxtitle {
+    font-size: 36px;
+    margin-top: 15px;
+    color: #D8DBE2;
+}
+
+#unavailable {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000000b3;
+    display:none;
+    z-index: 1;
+}
+
+#homeloginbutton {
+    z-index: 1000;
+}
+
+#roominfo {
+    display:none;
+    width: 100%;
+    height: 400px;
+}

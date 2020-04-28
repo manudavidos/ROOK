@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ROOK / AUA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/script.js"></script>
+</head>
+<body>
+<div id="unavailable"></div>
+
+<header id="header">
+    <div id="header-content">
+        <div id="header-content-login">
+            <a class="bigbtn" id="homeloginbutton" onclick="showloginbox()">Login With AUA Account</a>
+        </div>
+    </div>
+</header>
+<div id="popups">
+    <div id="loginbox">
+        <h1 id="loginboxtitle">Login</h1>
+        <input type="email" id="useremail" name="useremail" placeholder="AUA Email"><br>
+        <button type="button" id="loginbutton" class="bigbtn" onclick="login()">Login</button>
+    </div>
+</div>
+<main id="main">
+    <div id="main-content">
+        <a href="#"><span id="homepagelogo"></span></a>
+        <div id="homeroombar">
+                <input type="text" id="userroomnumber" name="userroomnumber" placeholder="Enter the room number e.g. 408E">
+                <button id="gototheroom" type="button"  onclick="gototheroom()">Go to the Room</button>
+        </div>
+        <div id="roominfo">
+            <h1>This feature is not ready yet!</h1>
+        </div>
+    </div>
+</main>
+<footer></footer>
+
+</body>
+</html>
