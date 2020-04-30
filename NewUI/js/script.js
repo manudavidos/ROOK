@@ -94,5 +94,9 @@ function checkpreviouslogin() {
 }
 
 
-window.onload = allroomscount;
-window.onload = checkpreviouslogin;
+function loading(){
+    checkpreviouslogin();
+    allroomscount();
+}
+
+window.onload = loading;
