@@ -138,9 +138,17 @@ body {
     align-items: center;
 }
 
-#loginbox {
+#loginbox{
     width: 500px;
     height: 300px;
+}
+
+#aboutusbox{
+    width: 800px;
+    height: 600px;
+}
+
+.popupwindow {
     text-align: center;
     display: none;
     margin: auto;
@@ -162,7 +170,7 @@ body {
     width:270px;
 }
 
-#loginboxtitle {
+.popupwindow-title {
     font-size: 36px;
     margin-top: 15px;
     color: #D8DBE2;
@@ -208,4 +216,36 @@ body {
     text-align: center;
     padding: 12px;
     margin-left: 25px;
+}
+
+#footer {
+    display:flex;
+    justify-content: center;
+    flex-basis:100vw;
+    min-width:225px;
+    height:15vh;
+    min-height:70px;
+    align-items: center;
+    position: relative;
+    background-color:#292D38 ;
+}
+
+#footer-content{
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.footer-link{
+    color: #292D38;
+    background-color: #81B0C0;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 15px 10px 15px;
+    border-radius: 30px;
+}
+
+.footer-link:hover{
+    background-color: #A9BCD0;
 }

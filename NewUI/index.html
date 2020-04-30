@@ -12,15 +12,19 @@
 <header id="header">
     <div id="header-content">
         <div id="header-content-login">
-            <a class="bigbtn" id="homeloginbutton" onclick="showloginbox()">Login With AUA Account</a>
+            <a class="bigbtn" id="homeloginbutton" onclick="showpopup('loginbox')">Login With AUA Account</a>
         </div>
     </div>
 </header>
 <div id="popups">
-    <div id="loginbox">
-        <h1 id="loginboxtitle">Login</h1>
+    <div id="loginbox" class="popupwindow">
+        <h1 id="loginboxtitle" class="popupwindow-title">Login</h1>
         <input type="email" id="useremail" name="useremail" placeholder="AUA Email"><br>
         <button type="button" id="loginbutton" class="bigbtn" onclick="login()">Login</button>
+    </div>
+    <div id="aboutusbox" class="popupwindow">
+        <h1 id="aboutusboxtitle" class="popupwindow-title">About Us</h1>
+        <p>Loalalnskafjkbn</p>
     </div>
 </div>
 <main id="main">
@@ -43,7 +47,14 @@
         </div>
     </div>
 </main>
-<footer></footer>
+<footer id="footer">
+    <div id="footer-content">
+        <a class="footer-link" id="aboutusbutton" onclick="showpopup('aboutusbox')">About Us</a>
+        <a class="footer-link" id="contactusbutton" onclick="showcontactusbox()">Contact Us</a>
+        <a class="footer-link" id="supportbutton" onclick="showsupportbox()">Support</a>
+    </div>
+</footer>
+
 
 </body>
 </html>

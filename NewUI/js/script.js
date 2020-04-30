@@ -1,16 +1,15 @@
-function showloginbox() {
+function showpopup(popupname) {
     document.getElementById("unavailable").style = "display:inline";
     document.getElementById("popups").style = "display:flex";
-    document.getElementById("loginbox").style = "display:flex";
-    document.getElementById("unavailable").setAttribute( "onClick", "closeloginbox()" );
+    document.getElementById(popupname).style = "display:flex";
+    document.getElementById("unavailable").setAttribute( "onClick", `closepopup('${popupname}')` );
 }
 
-function closeloginbox() {
+function closepopup(popupname) {
     document.getElementById("popups").style = "display:none";
-    document.getElementById("loginbox").style = "display:none";
+    document.getElementById(popupname).style = "display:none";
     document.getElementById("unavailable").style = "display:none";
     document.getElementById("unavailable").setAttribute( "onClick", "" );
-    document.getElementById("loginboxtitle").innerHTML = "Login";
 }
 
 function gototheroom() {
