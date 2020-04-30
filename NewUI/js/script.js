@@ -1,3 +1,12 @@
+if (localStorage.getItem("data") === null) {
+    localStorage.setItem('data', JSON.stringify(datajson))
+  }
+var data = JSON.parse(localStorage.getItem('data'));
+
+//data.status.available.name = "Example";
+//localStorage.setItem('data', JSON.stringify(data))
+//console.log(data.status.available.name)
+
 function showpopup(popupname) {
     document.getElementById("unavailable").style = "display:inline";
     document.getElementById("popups").style = "display:flex";
@@ -15,20 +24,10 @@ function closepopup(popupname) {
 function gototheroom() {
     document.getElementById("roominfo").style = "display:inline";
 }
-
-function validateeduauaEmail(email) 
-    {
-        var re = /\S+@edu.aua.am/;
-        return re.test(email);
-    }
-
-function validateauaEmail(email) 
-    {
-        var re = /\S+@aua.am/;
-        return re.test(email);
-    }
     
 function login() {
     var useremail = document.getElementById("useremail").value;
-    console.log(validateauaEmail(useremail));
+    if (data['users'][useremail] != null){
+        console.log(data['users'][useremail]['first_name'])
+    }
 }
