@@ -14,7 +14,6 @@ body {
     align-items: center;
     height: 80px;
     width:  100vw;
-    position: fixed;
     top:0;
     background-color: #373F51;
 }
@@ -32,7 +31,7 @@ body {
     width: 100vw;
     height: 80vh;
     min-height: 600px;
-    background-color: #373F51;
+    background-color: #373F51
 }
 
 #main-content{
@@ -203,7 +202,7 @@ body {
     justify-content: flex-start;
 }
 
-#luckybtn{
+#roomlistbtn{
     margin-top: 10px;
     min-width: 225px;
     text-align: center;

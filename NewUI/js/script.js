@@ -17,6 +17,19 @@ function gototheroom() {
     document.getElementById("roominfo").style = "display:inline";
 }
 
+function validateeduauaEmail(email) 
+    {
+        var re = /\S+@edu.aua.am/;
+        return re.test(email);
+    }
+
+function validateauaEmail(email) 
+    {
+        var re = /\S+@aua.am/;
+        return re.test(email);
+    }
+    
 function login() {
-    document.getElementById("loginboxtitle").innerHTML = "Sorry this feature is not ready yet";
+    var useremail = document.getElementById("useremail").value;
+    console.log(validateauaEmail(useremail));
 }
