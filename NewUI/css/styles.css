@@ -256,7 +256,7 @@ body {
     flex-direction: row;
 }
 
-.footer-btn{
+.small-btn{
     color: #292D38;
     background-color: #81B0C0;
     text-decoration: none;
@@ -265,7 +265,7 @@ body {
     border-radius: 30px;
 }
 
-.footer-btn:hover{
+.small-btn:hover{
     background-color: #A9BCD0;
     cursor: pointer;
 }
@@ -285,4 +285,22 @@ body {
 #errormessagebox-content{
     width: 95%;
     font-size: 32px;
+}
+
+#userprofiledetails{
+    color: #A9BCD0;
+}
+
+#userprofilefname, #userprofilelname{
+    font-size: 32px;
+}
+
+#userprofileemail{
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#userprofiledetails{
+    display: none;
+    font-size: 18px;
 }

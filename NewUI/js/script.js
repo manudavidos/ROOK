@@ -53,9 +53,27 @@ function findtheroom() {
 function login() {
     var useremail = document.getElementById("useremail").value;
     if (data['users'][useremail] != null){
-        console.log(data['users'][useremail]['first_name'])
+        closepopup("loginbox");
+        document.getElementById("homeloginbutton").style = "display:none";
+        localStorage.setItem('currentuser', useremail)
+        currentuser = localStorage.getItem("currentuser");
+        document.getElementById("userprofilefname").innerHTML = data['users'][currentuser]['first_name'];
+        document.getElementById("userprofilelname").innerHTML = data['users'][currentuser]['last_name'];
+        document.getElementById("userprofileemail").innerHTML = data['users'][currentuser]['email'];
+        document.getElementById("userprofiledetails").style = "display:block";
     } else {
         showerror("Error: No AUA Student with such credentials!");
+    }
+}
+
+function logout() {
+    if (localStorage.getItem("currentuser") != null) {
+        localStorage.removeItem("currentuser");
+        document.getElementById("userprofiledetails").style = "display:none";
+        document.getElementById("userprofilefname").innerHTML = "";
+        document.getElementById("userprofilelname").innerHTML = "";
+        document.getElementById("userprofileemail").innerHTML = "";
+        document.getElementById("homeloginbutton").style = "display:block";
     }
 }
 
@@ -64,4 +82,17 @@ function allroomscount() {
     document.getElementById("allroomscount").innerHTML = allroomscount;
 }
 
+function checkpreviouslogin() {
+    if (localStorage.getItem("currentuser") != null) {
+        currentuser = localStorage.getItem("currentuser");
+        document.getElementById("homeloginbutton").style = "display:none";
+        document.getElementById("userprofilefname").innerHTML = data['users'][currentuser]['first_name'];
+        document.getElementById("userprofilelname").innerHTML = data['users'][currentuser]['last_name'];
+        document.getElementById("userprofileemail").innerHTML = data['users'][currentuser]['email'];
+        document.getElementById("userprofiledetails").style = "display:block";
+      }
+}
+
+
 window.onload = allroomscount;
+window.onload = checkpreviouslogin;

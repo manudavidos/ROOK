@@ -70,8 +70,8 @@ var datajson ={
     },
     "users": {
         "aua@aua.am": {
-            "first_name": "AUA1",
-            "last_name": "",
+            "first_name": "Test",
+            "last_name": "User",
             "email": "aua@aua.am",
             "booked_room": "",
             "booked_for": ""
