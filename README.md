@@ -1,6 +1,6 @@
 # ROOK | Room Availability Checking Service
 
-**Version 1.0.2**
+**Version 1.1.1**
 
 This project was created by AUA students aiming to help the AUA community to use the AUA rooms more efficiently during the busy times of the year.
 
