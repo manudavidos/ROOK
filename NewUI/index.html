@@ -9,16 +9,16 @@
 </head>
 <body>
 <div id="unavailable"></div>
-<div id="errormessagebox">
-    <div id="errormessagebox-content">
-        <!--Here goes the error message-->
+<div id="notificationmessagebox">
+    <div id="notificationmessagebox-content">
+        <!--Here goes the notification message-->
     </div>
 </div>
 
 <header id="header">
     <div id="header-content">
         <div id="header-content-login">
-            <a class="bigbtn" id="homeloginbutton" onclick="showpopup('loginbox')">Login With AUA Email</a>
+            <a class="big-btn" id="homeloginbutton" onclick="showpopup('loginbox')">Login With AUA Email</a>
             <div id="userprofiledetails"><span id="userprofilefname"></span>&nbsp;<span id="userprofilelname">&nbsp;</span><span id="userprofileemail"></span><a onclick="logout()" class="small-btn">Logout</a></div>
         </div>
     </div>
@@ -26,8 +26,8 @@
 <div id="popups">
     <div id="loginbox" class="popupwindow">
         <h1 id="loginboxtitle" class="popupwindow-title">Login</h1>
-        <input type="email" id="useremail" name="useremail" placeholder="AUA Email"><br>
-        <button type="button" id="loginbutton" class="bigbtn" onclick="login()">Login</button>
+        <input type="email" id="useremail" name="useremail" placeholder="AUA Email" onkeyup="handleenter(event, 'login()')"><br>
+        <div class="box-buttons"><button type="button" id="loginbutton" class="big-btn" onclick="login()">Login</button></div>
     </div>
     <div id="aboutusbox" class="popupwindow">
         <h1 id="aboutusboxtitle" class="popupwindow-title">About Us</h1>
@@ -45,6 +45,13 @@
         <h1 id="roomlogintitle" class="popupwindow-title">Room Login</h1>
         <p>RoomLogin text</p>
     </div>
+    <div id="bookroombox" class="popupwindow">
+        <h1 id="bookroomtitle" class="popupwindow-title">Do you want to book <span id="bookroombox-roomcode"></span>?</h1>
+        <div class="box-buttons">
+            <a class="big-btn" id="accept-booking-btn">Yes</a>
+            <a class="big-btn" id="decline-booking-btn">No</a>
+        </div>
+    </div>
 </div>
 <main id="main">
     <div id="main-content">
@@ -52,23 +59,24 @@
             <a onclick="resetall()"><span id="homepagelogo"></span></a>
             <div id="allroominfo">
                 <div id="homeroombar">
-                    <input type="text" id="userroomnumber" name="userroomnumber" placeholder="Enter the room number e.g. 408E">
-                    <button id="gototheroom" type="button"  onclick="findtheroom()">Find the Room</button>
+                    <input type="text" id="userroomnumber" name="userroomnumber" placeholder="Enter the room number e.g. 408E" onkeyup="handleenter(event, 'loadroomdetails()')">
+                    <button id="gototheroom" type="button"  onclick="loadroomdetails()">Find the Room</button>
                 </div>
                 <div id="allroomstatus">
                 <h2>Currently Fully Occupied <span id="allroomsoccupied">0</span>/<span id="allroomscount">0</span></h2>
-                <a href="#" id="roomlistbtn" class="bigbtn">Room List</a>
+                <a href="#" id="roomlistbtn" class="big-btn">Room List</a>
                 </div>
             </div>
     </div>
         <div id="roominfo" class="interactivecontentbox">
             <!--Place For Room Info or -->
-            <span id="roominfo-roomcode"></span>
-            <span id="roominfo-roomlocation"></span>
-            <span id="roominfo-roomoccupiedseats"></span>
-            <span id="roominfo-roomcapacity"></span>
-            <span id="roominfo-roombookedby"></span>
-            <span id="roominfo-status"></span>
+            <span id="roominfo-roomcode"></span><br>
+            <span id="roominfo-roomlocation"></span><br>
+            <span id="roominfo-roomoccupiedseats"></span><i> /</i>
+            <span id="roominfo-roomcapacity"></span><br>
+            <span id="roominfo-roombookedby"></span><br>
+            <span id="roominfo-status"></span><br>
+            <a class="small-btn" id="roombookbutton" >Book This Room</a><br>
             <a class="small-btn" id="roomloginbutton" onclick="showpopup('roomlogin')">Login</a>
         </div>
         <div id="roomlist" class="interactivecontentbox">

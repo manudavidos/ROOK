@@ -7,13 +7,13 @@ var data = JSON.parse(localStorage.getItem('data'));
 //localStorage.setItem('data', JSON.stringify(data))
 //console.log(data.status.available.name)
 
-function showerror(errormessage, errorcolor){
-    document.getElementById("errormessagebox").style = `display:flex; height:32px; background-color:${errorcolor};`;
-    setTimeout(function(){ document.getElementById("errormessagebox").style = `display:flex; height:80px; background-color:${errorcolor};`; }, 50);
-    document.getElementById("errormessagebox-content").innerHTML = errormessage;
-    setTimeout(function(){ document.getElementById("errormessagebox").style = `display:flex; height:32px; background-color:${errorcolor}`; }, 3000);
-    setTimeout(function(){ document.getElementById("errormessagebox-content").innerHTML = ""; document.getElementById("errormessagebox").style = `display:flex; height:0px; background-color:${errorcolor};`; }, 3050);
-    setTimeout(function(){ document.getElementById("errormessagebox").style = `display:none; background-color:${errorcolor}`; }, 3400);
+function shownotification(notificationmessage, notificationcolor){
+    document.getElementById("notificationmessagebox").style = `display:flex; height:32px; background-color:${notificationcolor};`;
+    setTimeout(function(){ document.getElementById("notificationmessagebox").style = `display:flex; height:80px; background-color:${notificationcolor};`; }, 50);
+    document.getElementById("notificationmessagebox-content").innerHTML = notificationmessage;
+    setTimeout(function(){ document.getElementById("notificationmessagebox").style = `display:flex; height:32px; background-color:${notificationcolor}`; }, 3000);
+    setTimeout(function(){ document.getElementById("notificationmessagebox-content").innerHTML = ""; document.getElementById("notificationmessagebox").style = `display:flex; height:0px; background-color:${notificationcolor};`; }, 3050);
+    setTimeout(function(){ document.getElementById("notificationmessagebox").style = `display:none; background-color:${notificationcolor}`; }, 3400);
 }
 
 function showpopup(popupname) {
@@ -31,29 +31,68 @@ function closepopup(popupname) {
 }
 
 function resetall() {
-    document.getElementById("roominfo").style = "display:none";
-    document.getElementById("roomlist").style = "display:none";
-    document.getElementById("popups").style = "display:none";
-    document.getElementById("unavailable").style = "display:none";
+    location.reload();
 }
 
-function findtheroom() {
+function removefromarray(arrayname, valuetoremove){
+    for( var i = 0; i < (arrayname).length; i++){
+         if ( arrayname[i] == valuetoremove) { 
+            arrayname = (arrayname).splice(i, 1);
+        }
+    }
+}
+
+function bookroom(roomcode){
+    if (localStorage.getItem("currentuser") != null){
+        if ((data['rooms'][roomcode] != null) && (JSON.stringify(data['rooms'][roomcode]['room_status']) === JSON.stringify(data['status']['available']) && Number(data['rooms'][roomcode]['room_occupied_seats']) < Number(data['rooms'][roomcode]['room_capacity']))){
+            closepopup("bookroombox");
+            data['rooms'][roomcode]['room_occupied_seats'] += 1;
+            (data['rooms'][roomcode]['room_booked_by']).push(localStorage.getItem("currentuser"));
+            localStorage.setItem('data', JSON.stringify(data));
+            loadroomdetails(roomcode); //refresh room details
+            shownotification(`Success: You have booked ${roomcode}`,"#6ada0eb0");
+        }
+    } else {
+            shownotification("Please login before booking rooms","#292d38cc")
+            closepopup("bookroombox");
+            showpopup("loginbox");
+        }
+    }
+
+function unbookroom(roomcode){
+    var bookedby = data['rooms'][roomcode]['room_booked_by'];
+    var currentuser = localStorage.getItem("currentuser");
+    removefromarray(bookedby, currentuser);
+    data['rooms'][roomcode]['room_occupied_seats'] -= 1;
+    localStorage.setItem('data', JSON.stringify(data));
+    loadroomdetails(roomcode); //refresh room details
+}
+
+function bookroomq(roomcode){
+    document.getElementById("bookroombox-roomcode").innerHTML = roomcode;
+    document.getElementById("decline-booking-btn").setAttribute( "onClick", `closepopup("bookroombox")` );
+    document.getElementById("accept-booking-btn").setAttribute( "onClick", `bookroom('${roomcode}')` );
+    showpopup("bookroombox");
+}
+
+function loadroomdetails() {
     document.getElementById("roominfo").style = "display:none";
     document.getElementById("roomlist").style = "display:none";
     document.getElementById("userroomnumber").style ="";
     var userroomnumber = (document.getElementById("userroomnumber").value).toUpperCase();
     if (userroomnumber == ""){
-        showerror("Error: Please enter the room number", "#292d38cc");
+        shownotification("Error: Please enter the room number", "#292d38cc");
     }else if (data['rooms'][userroomnumber] != null){
         document.getElementById("roominfo").style = "display:block";
         document.getElementById("roominfo-roomcode").innerHTML = data["rooms"][userroomnumber]["room_code"];
-        //data["rooms"][userroomnumber]["room_location"]["name"]
-        //data["rooms"][userroomnumber]["room_occupied_seats"]
-        //data["rooms"][userroomnumber]["room_capacity"]
-        //data["rooms"][userroomnumber]["room_booked_by"]
-        //data["rooms"][userroomnumber]["room_status"]["name"]
+        document.getElementById("roominfo-roomlocation").innerHTML = data["rooms"][userroomnumber]["room_location"]["name"]
+        document.getElementById("roominfo-roomoccupiedseats").innerHTML = data["rooms"][userroomnumber]["room_occupied_seats"]
+        document.getElementById("roominfo-roomcapacity").innerHTML = data["rooms"][userroomnumber]["room_capacity"]
+        document.getElementById("roominfo-roombookedby").innerHTML = data["rooms"][userroomnumber]["room_booked_by"]
+        document.getElementById("roominfo-status").innerHTML = data["rooms"][userroomnumber]["room_status"]["name"]
+        document.getElementById("roombookbutton").setAttribute( "onClick", `bookroomq('${userroomnumber}')` );
     } else {
-        showerror("Error: We could not find room with these details", "#ff6347a8");
+        shownotification("Error: We could not find room with these details", "#ff6347a8");
     }
 }
 
@@ -69,12 +108,18 @@ function validateauaEmail(email)
         return auatest.test(email);
     }
     
+function handleenter(e, functionname){
+    if(e.keyCode == 13){
+        eval(functionname);
+    }
+}
+
 function login() {
     var useremail = (document.getElementById("useremail").value).toLowerCase();
     if (useremail == ""){
-        showerror("Error: Please enter your email", "#292d38cc");
+        shownotification("Error: Please enter your email", "#292d38cc");
     }else if (useremail != "" && validateeduauaEmail(useremail) == false && validateauaEmail(useremail) == false){
-        showerror("Error: Please enter valid AUA email", "#292d38cc");
+        shownotification("Error: Please enter valid AUA email", "#292d38cc");
     }else if (data['users'][useremail] != null){
         closepopup("loginbox");
         document.getElementById("homeloginbutton").style = "display:none";
@@ -84,8 +129,9 @@ function login() {
         document.getElementById("userprofilelname").innerHTML = data['users'][currentuser]['last_name'];
         document.getElementById("userprofileemail").innerHTML = data['users'][currentuser]['email'];
         document.getElementById("userprofiledetails").style = "display:block";
+        document.getElementById("useremail").value = "";
     } else {
-        showerror("Error: No AUA Student with such credentials!", "#ff6347a8");
+        shownotification("Error: No AUA Student with such credentials!", "#ff6347a8");
     }
 }
 
