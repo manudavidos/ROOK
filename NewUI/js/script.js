@@ -41,7 +41,7 @@ function findtheroom() {
     document.getElementById("roominfo").style = "display:none";
     document.getElementById("roomlist").style = "display:none";
     document.getElementById("userroomnumber").style ="";
-    var userroomnumber = document.getElementById("userroomnumber").value;
+    var userroomnumber = (document.getElementById("userroomnumber").value).toUpperCase();
     if (userroomnumber == ""){
         showerror("Error: Please enter the room number", "#292d38cc");
     }else if (data['rooms'][userroomnumber] != null){
@@ -70,7 +70,7 @@ function validateauaEmail(email)
     }
     
 function login() {
-    var useremail = document.getElementById("useremail").value;
+    var useremail = (document.getElementById("useremail").value).toLowerCase();
     if (useremail == ""){
         showerror("Error: Please enter your email", "#292d38cc");
     }else if (useremail != "" && validateeduauaEmail(useremail) == false && validateauaEmail(useremail) == false){
