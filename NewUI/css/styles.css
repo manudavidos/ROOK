@@ -139,7 +139,7 @@ body {
     align-items: center;
 }
 
-#loginbox{
+#loginbox, #roomlogin{
     width: 500px;
     height: 300px;
     align-items: center;
@@ -193,6 +193,7 @@ body {
 
 #homeloginbutton {
     z-index: 1000;
+    display: none;
 }
 
 .interactivecontentbox{
@@ -205,7 +206,8 @@ body {
 }
 
 #roominfo {
-    background-color: #81B0C0;
+    background-color: #C1CCD9;
+    margin-top:10px;
 }
 
 #roomlist {
@@ -275,7 +277,6 @@ body {
     width: 100%;
     height: 0px;
     position: fixed;
-    background-color: #ff6347a8;
     color: #ffffff;
     z-index: 2;
     justify-content: center;

@@ -7,13 +7,13 @@ var data = JSON.parse(localStorage.getItem('data'));
 //localStorage.setItem('data', JSON.stringify(data))
 //console.log(data.status.available.name)
 
-function showerror(errormessage){
-    document.getElementById("errormessagebox").style = "display:flex; height:32px;";
-    setTimeout(function(){ document.getElementById("errormessagebox").style = "display:flex; height:80px;"; }, 50);
+function showerror(errormessage, errorcolor){
+    document.getElementById("errormessagebox").style = `display:flex; height:32px; background-color:${errorcolor};`;
+    setTimeout(function(){ document.getElementById("errormessagebox").style = `display:flex; height:80px; background-color:${errorcolor};`; }, 50);
     document.getElementById("errormessagebox-content").innerHTML = errormessage;
-    setTimeout(function(){ document.getElementById("errormessagebox").style = "display:flex; height:32px;"; }, 3000);
-    setTimeout(function(){ document.getElementById("errormessagebox-content").innerHTML = ""; document.getElementById("errormessagebox").style = "display:flex; height:0px;"; }, 3050);
-    setTimeout(function(){ document.getElementById("errormessagebox").style = "display:none;"; }, 3400);
+    setTimeout(function(){ document.getElementById("errormessagebox").style = `display:flex; height:32px; background-color:${errorcolor}`; }, 3000);
+    setTimeout(function(){ document.getElementById("errormessagebox-content").innerHTML = ""; document.getElementById("errormessagebox").style = `display:flex; height:0px; background-color:${errorcolor};`; }, 3050);
+    setTimeout(function(){ document.getElementById("errormessagebox").style = `display:none; background-color:${errorcolor}`; }, 3400);
 }
 
 function showpopup(popupname) {
@@ -42,17 +42,40 @@ function findtheroom() {
     document.getElementById("roomlist").style = "display:none";
     document.getElementById("userroomnumber").style ="";
     var userroomnumber = document.getElementById("userroomnumber").value;
-    if (data['rooms'][userroomnumber] != null){
-        document.getElementById("roominfo").style = "display:inline";
-        document.getElementById("roominfo").innerHTML += "<h1>" + data["rooms"][userroomnumber]["room_code"] +"</h1>";
+    if (userroomnumber == ""){
+        showerror("Error: Please enter the room number", "#292d38cc");
+    }else if (data['rooms'][userroomnumber] != null){
+        document.getElementById("roominfo").style = "display:block";
+        document.getElementById("roominfo-roomcode").innerHTML = data["rooms"][userroomnumber]["room_code"];
+        //data["rooms"][userroomnumber]["room_location"]["name"]
+        //data["rooms"][userroomnumber]["room_occupied_seats"]
+        //data["rooms"][userroomnumber]["room_capacity"]
+        //data["rooms"][userroomnumber]["room_booked_by"]
+        //data["rooms"][userroomnumber]["room_status"]["name"]
     } else {
-        showerror("Error: We could not find room with these details");
+        showerror("Error: We could not find room with these details", "#ff6347a8");
     }
 }
+
+function validateeduauaEmail(email) 
+    {
+        var eduauatest = /\S+@edu.aua.am/;
+        return eduauatest.test(email);
+    }
+
+function validateauaEmail(email) 
+    {
+        var auatest = /\S+@aua.am/;
+        return auatest.test(email);
+    }
     
 function login() {
     var useremail = document.getElementById("useremail").value;
-    if (data['users'][useremail] != null){
+    if (useremail == ""){
+        showerror("Error: Please enter your email", "#292d38cc");
+    }else if (useremail != "" && validateeduauaEmail(useremail) == false && validateauaEmail(useremail) == false){
+        showerror("Error: Please enter valid AUA email", "#292d38cc");
+    }else if (data['users'][useremail] != null){
         closepopup("loginbox");
         document.getElementById("homeloginbutton").style = "display:none";
         localStorage.setItem('currentuser', useremail)
@@ -62,7 +85,7 @@ function login() {
         document.getElementById("userprofileemail").innerHTML = data['users'][currentuser]['email'];
         document.getElementById("userprofiledetails").style = "display:block";
     } else {
-        showerror("Error: No AUA Student with such credentials!");
+        showerror("Error: No AUA Student with such credentials!", "#ff6347a8");
     }
 }
 
@@ -90,6 +113,8 @@ function checkpreviouslogin() {
         document.getElementById("userprofilelname").innerHTML = data['users'][currentuser]['last_name'];
         document.getElementById("userprofileemail").innerHTML = data['users'][currentuser]['email'];
         document.getElementById("userprofiledetails").style = "display:block";
+      } else {
+        document.getElementById("homeloginbutton").style = "display:inline-block;";
       }
 }
 

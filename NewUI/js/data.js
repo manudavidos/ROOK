@@ -77,8 +77,8 @@ var datajson ={
             "booked_for": ""
         },
         "aua1@aua.am": {
-            "first_name": "",
-            "last_name": "",
+            "first_name": "Ani",
+            "last_name": "Babayan",
             "email": "aua1@aua.am",
             "booked_room": "",
             "booked_for": ""

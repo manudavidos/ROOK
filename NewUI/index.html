@@ -4,8 +4,8 @@
 <title>ROOK / AUA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="js/data.js"></script>
-<link rel="stylesheet" href="css/styles.css">
 <script src="js/script.js"></script>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <div id="unavailable"></div>
@@ -41,6 +41,10 @@
         <h1 id="supportboxtitle" class="popupwindow-title">Support</h1>
         <p>Support text</p>
     </div>
+    <div id="roomlogin" class="popupwindow">
+        <h1 id="roomlogintitle" class="popupwindow-title">Room Login</h1>
+        <p>RoomLogin text</p>
+    </div>
 </div>
 <main id="main">
     <div id="main-content">
@@ -59,6 +63,13 @@
     </div>
         <div id="roominfo" class="interactivecontentbox">
             <!--Place For Room Info or -->
+            <span id="roominfo-roomcode"></span>
+            <span id="roominfo-roomlocation"></span>
+            <span id="roominfo-roomoccupiedseats"></span>
+            <span id="roominfo-roomcapacity"></span>
+            <span id="roominfo-roombookedby"></span>
+            <span id="roominfo-status"></span>
+            <a class="small-btn" id="roomloginbutton" onclick="showpopup('roomlogin')">Login</a>
         </div>
         <div id="roomlist" class="interactivecontentbox">
             <!--Place For Room Info or -->
