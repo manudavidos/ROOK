@@ -5,7 +5,7 @@ var datajson ={
             "code": 0
         },
         "booked": {
-            "name": "Booked",
+            "name": "Fully Booked",
             "code": 1
         },
         "other": {
@@ -45,7 +45,7 @@ var datajson ={
                 "number_of_floors": 7
             },
             "room_capacity": 10,
-            "room_occupied_seats": 4,
+            "room_occupied_seats": 0,
             "room_booked_by": [],
             "room_password": "lol123"
         },
@@ -63,7 +63,7 @@ var datajson ={
                 "number_of_floors": 7
             },
             "room_capacity": 10,
-            "room_occupied_seats": 2,
+            "room_occupied_seats": 0,
             "room_booked_by": [],
             "room_password": ""
         }
@@ -74,6 +74,7 @@ var datajson ={
             "last_name": "User",
             "email": "aua@aua.am",
             "booked_room": "",
+            "booked_time": "",
             "booked_for": ""
         },
         "aua1@aua.am": {
@@ -81,6 +82,7 @@ var datajson ={
             "last_name": "Babayan",
             "email": "aua1@aua.am",
             "booked_room": "",
+            "booked_time": "",
             "booked_for": ""
         }
     },

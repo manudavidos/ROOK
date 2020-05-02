@@ -139,14 +139,14 @@ body {
     align-items: center;
 }
 
-#loginbox, #roomlogin{
+#loginbox{
     width: 500px;
     height: 300px;
     align-items: center;
 }
 
 #bookroombox{
-    height: 150px;
+    height: 300px;
     align-items: center;
 }
 
@@ -204,6 +204,11 @@ body {
     display: none;
 }
 
+#goback-btn{
+    margin-top:20px;
+    display: none;
+}
+
 .interactivecontentbox{
     display:none;
     width: auto;
@@ -235,14 +240,6 @@ body {
     color: #A9BCD0;
     font-size: 18px;
     justify-content: center;
-}
-
-#roomlistbtn{
-    margin-top: 10px;
-    min-width: 225px;
-    text-align: center;
-    padding: 12px;
-    margin-left: 25px;
 }
 
 #footer {
@@ -312,4 +309,34 @@ body {
 #userprofiledetails{
     display: none;
     font-size: 18px;
+}
+
+.roundify-input {
+    border: none;
+    border-radius: 28px;
+    font-size: 19px;
+    background-color: #FFFFFF;
+    padding: 12px 12px 12px 12px;
+    outline: 0;
+}
+
+#roomunbookbutton, #roombookbutton{
+    display: none;
+}
+
+#aboutusbox{
+    font-size: 26px;
+}
+
+#bookroompassword{
+    display: none;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+#mybookedroom{
+    display: none;
+    margin-right:10px;
 }
