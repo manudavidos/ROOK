@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ROOK / AUA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="js/data.js"></script>
+<script src="js/script.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="unavailable"></div>
+<div id="notificationmessagebox">
+    <div id="notificationmessagebox-content">
+        <!--Here goes the notification message-->
+    </div>
+</div>
+
+<header id="header">
+    <div id="header-content">
+        <div id="header-content-login">
+            <a class="big-btn" id="homeloginbutton" onclick="showpopup('loginbox')">Local Login With AUA Email</a>
+            <div id="userprofiledetails"><span id="userprofilefname"></span>&nbsp;<span id="userprofilelname">&nbsp;</span><span id="userprofileemail"></span><a class="small-btn" id="mybookedroom"><!--Here goes room details if room is booked--></a><a onclick="logout()" class="small-btn">Logout</a></div>
+        </div>
+    </div>
+</header>
+<div id="popups">
+    <div id="loginbox" class="popupwindow">
+        <h1 id="loginboxtitle" class="popupwindow-title">Login</h1>
+        <input type="email" id="useremail" name="useremail" placeholder="AUA Email" onkeyup="handleenter(event, 'login()')"><br>
+        <div class="box-buttons"><button type="button" id="loginbutton" class="big-btn" onclick="login()">Login</button></div>
+    </div>
+    <div id="aboutusbox" class="popupwindow">
+        <h1 id="aboutusboxtitle" class="popupwindow-title">About Us</h1>
+        <p>Hey!<br>
+            This project was created by a small group of AUA students aiming to help the AUA community to use the AUA rooms more efficiently. Since during the midterm and final exams library rooms and labs are full, a lot of students don't have a place to study. Therefore, we created this platform to allow students to book available rooms in AUA to study. Now you can check whether the AUA rooms are available or not, when they are available, and how long you can book them. Due to our project, many students in AUA will have a proper place to study and prepare for their exams. 
+            <br>The idea came up during the "Introduction to the World of Programming" course, and we developed our concept and created this platform. There are three members in our group: Ani, Gayane, and David. We all are freshman students majoring in English and Communications, and Business. Below you can meet our group members.</p>
+    </div>
+    <div id="contactusbox" class="popupwindow">
+        <h1 id="contactusboxtitle" class="popupwindow-title">Contact Us</h1>
+        <p>If you have any problem or question related to our services and their quality, you can contact us. We'll respond to you quickly, maximum within 7 working days. In case of questions or issues requiring additional research we will respond within14 working days.<br><br>
+            Headquarter<br><br>
+            American University of Armenia<br>
+            40 Marshal Baghramyan Ave.<br>
+            Yerevan 0019, Republic of Armenia<br><br>
+            
+            Phone: +374 55 48 11 64<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+374 94 16 12 14<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+374 12 34 56 78<br><br>
+            
+            e-mail: manvel_manvelyan@edu.aua.am<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ani_babayan@edu.aua.am<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gayane_amirjanyan@edu.aua.am<br>
+            
+            
+            </p>
+    </div>
+    <div id="supportbox" class="popupwindow">
+        <h1 id="supportboxtitle" class="popupwindow-title">Support</h1>
+        <p>Support text</p>
+    </div>
+    <div id="bookroombox" class="popupwindow">
+        <h1 id="bookroomtitle" class="popupwindow-title">You are booking the room: <span id="bookroombox-roomcode"></span></h1>
+        <div id="bookroomdetails">
+            <input type="password" placeholder="Room Password" id="bookroompassword" class="roundify-input">
+            <label for="bookroom-hoursofreservation">Booking Duration: </label>
+            <select id="bookroom-hoursofreservation" class="roundify-input">
+                <!--Here goes the generated times from JSON-->
+            </select>
+            <label for="bookroom-membernumber">Booking For: </label>
+            <select id="bookroom-membernumber" class="roundify-input">
+                <!--Here goes the generated member number from JSON-->
+            </select>
+        </div>
+        <div class="box-buttons">
+            <a class="big-btn" id="accept-booking-btn">Book Now!</a>
+            <a class="big-btn" id="decline-booking-btn">Cancel</a>
+        </div>
+    </div>
+</div>
+<main id="main">
+    <div id="main-content">
+        <div id="homepage">
+            <a onclick="resetall()"><span id="homepagelogo"></span></a>
+            <div id="allroominfo">
+                <div id="homeroombar">
+                    <input type="text" id="userroomnumber" name="userroomnumber" placeholder="Enter the room number e.g. 003M" onkeyup="handleenter(event, 'loadroomdetails()')">
+                    <button id="gototheroom" type="button"  onclick="loadroomdetails()">Find the Room</button>
+                </div>
+                <div id="allroomstatus">
+                <h2>Currently Fully Occupied <span id="allroomsoccupied">0</span>/<span id="allroomscount">0</span></h2>
+                </div>
+            </div>
+    </div>
+    <a class="small-btn" id="goback-btn" onclick="loadallroominfo()">Go Back</a><br>
+        <div id="roominfo" class="interactivecontentbox">
+            <!--Place For Room Info or -->
+            <span id="roominfo-roomcode"></span><br>
+            <span id="roominfo-roomlocation"></span><br>
+            <span id="roominfo-roomoccupiedseats"></span><i> /</i>
+            <span id="roominfo-roomcapacity"></span><br>
+            <span id="roominfo-roombookedby"></span><br>
+            <span id="roominfo-status"></span><br>
+            <a class="small-btn" id="roombookbutton" >Book This Room</a><br>
+            <a class="small-btn" id="roomunbookbutton" >Fast Unbook</a><br>
+        </div>
+        <div id="roomlist" class="interactivecontentbox">
+            <!--Place For Room Info or -->
+        </div>
+    </div>
+</main>
+<footer id="footer">
+    <div id="footer-content">
+        <a class="small-btn" id="aboutusbutton" onclick="showpopup('aboutusbox')">About Us</a>
+        <a class="small-btn" id="contactusbutton" onclick="showpopup('contactusbox')">Contact Us</a>
+        <a class="small-btn" id="supportbutton" onclick="showpopup('supportbox')">Support</a>
+    </div>
+</footer>
+
+
+</body>
+</html>

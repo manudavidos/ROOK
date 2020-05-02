@@ -1,0 +1,342 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: width 0.5s, height 0.5s, transform 0.5s;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+body {
+    background-color: #373F51;
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width:  100%;
+    top:0;
+    background-color: #373F51;
+}
+
+#header-content{
+    width: 96vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+    min-height: 600px;
+    background-color: #373F51;
+    flex: 10;
+}
+
+#main-content{
+    display: flex;
+    width: 96vw;
+    flex-direction: column;
+}
+
+  /* Button styles */
+
+.big-btn {
+	background-color:#A9BCD0;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color: #1B1B1E;
+	font-size:19px;
+	padding:16px 28px;
+    text-decoration:none;
+    border: 0;
+    outline: 0;
+    text-align: center;
+}
+
+.big-btn:hover {
+    background-color:#D8DBE2;
+}
+.whitebtn:active {
+	position:relative;
+	top:1px;
+}
+
+#homeroombar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    margin-bottom:20px;
+    margin-right: 20px;
+    flex:1;
+}
+
+#homeroombar input[type=text], #useremail {
+    border: none;
+    border-radius: 28px;
+    font-size: 19px;
+    background-color: #FFFFFF;
+    padding: 12px 12px 12px 12px;
+    outline: 0;
+  }
+
+#homeroombar input[type=text]:focus, #useremail:focus {
+    border: none;
+  }
+
+  #userroomnumber {
+    width: 45vw;
+    min-width: 550px;
+    padding: 12px 120px 12px 12px !important;
+  }
+
+  #homeroombar button {
+	background-color:#A9BCD0;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color: #1B1B1E;
+	font-size:19px;
+	padding: 12px;
+    text-decoration:none;
+    border:0;
+    outline: 0;
+    margin-left: -158px;
+    min-width: 158px;
+}
+
+#homeroombar button:hover {
+	background-color:#D8DBE2;
+}
+
+
+#homepagelogo {
+    background: url("../img/logo.png");
+    background-size: 198px 241px;
+    height: 241px;
+    width: 198px;
+    display: inline-block;
+}
+
+#popups{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginbox{
+    width: 500px;
+    height: 300px;
+    align-items: center;
+}
+
+#bookroombox{
+    height: 300px;
+    align-items: center;
+}
+
+.box-buttons{
+    margin-top: 25px;
+}
+
+#aboutusbox, #contactusbox, #supportbox{
+    width: 80vw;
+    height: 80vh;
+    flex-wrap: wrap;
+    font-size: 18px;
+}
+
+.popupwindow {
+    display: none;
+    margin: auto;
+    z-index: 1000;
+    border-color: #A9BCD0;
+    background-color: #1B1B1E;
+    color: #A9BCD0;
+    border-style: outset;
+    border-radius: 20px;
+    flex-flow: column;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    padding: 15px;
+    overflow: auto;
+}
+
+#useremail {
+    margin-top: 40px;
+    width:270px;
+}
+
+.popupwindow-title {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 15px;
+    color: #D8DBE2;
+}
+
+#unavailable {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000000b3;
+    display:none;
+    z-index: 1;
+}
+
+#homeloginbutton {
+    z-index: 1000;
+    display: none;
+}
+
+#goback-btn{
+    margin-top:20px;
+    display: none;
+}
+
+.interactivecontentbox{
+    display:none;
+    width: auto;
+    padding: 15px;
+    height: auto;
+    margin-bottom: 25px;
+    border-radius: 30px;
+}
+
+#roominfo {
+    background-color: #C1CCD9;
+    margin-top:10px;
+}
+
+#roomlist {
+    background-color: #81B0C0;
+}
+
+#allroominfo{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#allroomstatus{
+    display: flex;
+    align-items: center;
+    flex:1;
+    color: #A9BCD0;
+    font-size: 18px;
+    justify-content: center;
+}
+
+#footer {
+    display:flex;
+    justify-content: center;
+    min-width:225px;
+    height:15vh;
+    min-height:70px;
+    align-items: center;
+    position: sticky;
+    background-color:#292D38 ;
+    margin-top:auto;
+    flex-shrink: 0;
+    margin-top:15vh;
+}
+
+#footer-content{
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.small-btn{
+    color: #292D38;
+    background-color: #81B0C0;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 15px 10px 15px;
+    border-radius: 30px;
+}
+
+.small-btn:hover{
+    background-color: #A9BCD0;
+    cursor: pointer;
+}
+
+#notificationmessagebox{
+    display: none;
+    width: 100%;
+    height: 0px;
+    position: fixed;
+    color: #ffffff;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+}
+
+#notificationmessagebox-content{
+    width: 95%;
+    font-size: 32px;
+}
+
+#userprofiledetails{
+    color: #A9BCD0;
+}
+
+#userprofilefname, #userprofilelname{
+    font-size: 32px;
+}
+
+#userprofileemail{
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#userprofiledetails{
+    display: none;
+    font-size: 18px;
+}
+
+.roundify-input {
+    border: none;
+    border-radius: 28px;
+    font-size: 19px;
+    background-color: #FFFFFF;
+    padding: 12px 12px 12px 12px;
+    outline: 0;
+}
+
+#roomunbookbutton, #roombookbutton{
+    display: none;
+}
+
+#aboutusbox{
+    font-size: 26px;
+}
+
+#bookroompassword{
+    display: none;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+#mybookedroom{
+    display: none;
+    margin-right:10px;
+}

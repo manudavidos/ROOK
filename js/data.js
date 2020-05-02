@@ -1,0 +1,98 @@
+var datajson ={
+    "status": {
+        "available": {
+            "name": "Available",
+            "code": 0
+        },
+        "booked": {
+            "name": "Fully Booked",
+            "code": 1
+        },
+        "other": {
+            "name": "Other",
+            "code": 2
+        }
+    },
+    "location": {
+        "main_building": {
+            "name": "Main Building",
+            "code": [
+                "M"
+            ],
+            "number_of_floors": 6
+        },
+        "pab": {
+            "name": "Parmaz Avetisian Building",
+            "code": [
+                "E",
+                "W"
+            ],
+            "number_of_floors": 4
+        }
+    },
+    "rooms": {
+        "003M": {
+            "room_code": "003M",
+            "room_status": {
+                "name": "Other",
+                "code": 2
+            },
+            "room_location": {
+                "name": "Main Building",
+                "code": [
+                    "M"
+                ],
+                "number_of_floors": 7
+            },
+            "room_capacity": 10,
+            "room_occupied_seats": 0,
+            "room_booked_by": [],
+            "room_password": "lol123"
+        },
+        "004M": {
+            "room_code": "004M",
+            "room_status": {
+                "name": "Available",
+                "code": 0
+            },
+            "room_location": {
+                "name": "Main Building",
+                "code": [
+                    "M"
+                ],
+                "number_of_floors": 7
+            },
+            "room_capacity": 10,
+            "room_occupied_seats": 0,
+            "room_booked_by": [],
+            "room_password": ""
+        }
+    },
+    "users": {
+        "aua@aua.am": {
+            "first_name": "Test",
+            "last_name": "User",
+            "email": "aua@aua.am",
+            "booked_room": "",
+            "booked_time": "",
+            "booked_for": ""
+        },
+        "aua1@aua.am": {
+            "first_name": "Ani",
+            "last_name": "Babayan",
+            "email": "aua1@aua.am",
+            "booked_room": "",
+            "booked_time": "",
+            "booked_for": ""
+        }
+    },
+    "people_number": {
+        "maximum_number_per_group": 5
+    },
+    "hours_of_reservation": [
+        30,
+        60,
+        90,
+        120
+    ]
+}
