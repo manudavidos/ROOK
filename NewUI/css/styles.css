@@ -161,12 +161,6 @@ body {
     font-size: 18px;
 }
 
-#supportbox{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .popupwindow {
     display: none;
     margin: auto;
