@@ -161,6 +161,12 @@ body {
     font-size: 18px;
 }
 
+#supportbox{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .popupwindow {
     display: none;
     margin: auto;
@@ -339,4 +345,31 @@ body {
 #mybookedroom{
     display: none;
     margin-right:10px;
+}
+
+.aboutus-memberphoto{
+    width: 150px;
+    height: 150px;
+    background-attachment: fixed;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+#members-aboutus{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top:25px;
+    width: 76vw;
+}
+
+.social-media-icon{
+    height: 50px;
+    width: 50px;
+}
+
+.social-media-icon:hover{
+    height: 50px;
+    width: 50px;
+    opacity: 0.5;
 }
