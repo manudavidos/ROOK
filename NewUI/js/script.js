@@ -298,10 +298,10 @@ function logout() {
 }
 
 function allroomscount() {
-    var allroomscount = Object.keys(data.rooms).length;
+    var allroomscount = Object.keys(data['rooms']).length;
     var fullyoccupiedrooms = 0;
     for (i = 0; i < allroomscount; i++) {
-        var roomcode = ((Object.keys(data.rooms))[i]);
+        var roomcode = ((Object.keys(data['rooms']))[i]);
         if (JSON.stringify(data['rooms'][roomcode]['room_status']) === JSON.stringify(data['status']['booked'])){
             fullyoccupiedrooms += 1;
         }
