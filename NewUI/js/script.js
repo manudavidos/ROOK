@@ -187,7 +187,6 @@ function bookroomq(roomcode){
 
 function loadroomdetails() {
     document.getElementById("roominfo").style = "display:none";
-    document.getElementById("roomlist").style = "display:none";
     document.getElementById("userroomnumber").style ="";
     var userroomnumber = (document.getElementById("userroomnumber").value).toUpperCase();
     if (userroomnumber == ""){
@@ -205,10 +204,12 @@ function loadroomdetails() {
         document.getElementById("goback-btn").style ="display:block;";
         document.getElementById("roomunbookbutton").style ="display:none;";
         document.getElementById("roombookbutton").style ="display:block;";
-        if (userroomnumber == (data['users'][localStorage.getItem("currentuser")]['booked_room'])){
-            document.getElementById("roomunbookbutton").setAttribute( "onClick", `unbookroom('${userroomnumber}')` );
-            document.getElementById("roombookbutton").style ="display:none;";
-            document.getElementById("roomunbookbutton").style ="display:block;";
+        if (localStorage.getItem("currentuser") != null){
+            if (userroomnumber == (data['users'][localStorage.getItem("currentuser")]['booked_room'])){
+                document.getElementById("roomunbookbutton").setAttribute( "onClick", `unbookroom('${userroomnumber}')` );
+                document.getElementById("roombookbutton").style ="display:none;";
+                document.getElementById("roomunbookbutton").style ="display:block;";
+            }
         }
     } else {
         shownotification("Error: We could not find room with these details", "#ff6347a8");

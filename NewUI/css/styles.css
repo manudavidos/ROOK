@@ -226,10 +226,6 @@ body {
     margin-top:10px;
 }
 
-#roomlist {
-    background-color: #81B0C0;
-}
-
 #allroominfo{
     display: flex;
     justify-content: space-between;
